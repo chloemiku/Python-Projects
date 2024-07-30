@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    C$50 Finance: Portfolio
+{% endblock %}
+
+{% block main %}
+<div class="container mb-3">
+    <h2>Your Portfolio</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Stock Symbol</th>
+                <th>Shares</th>
+                <th>Current Price</th>
+                <th>Total Value</th>
+                <th>Buy/Sell</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stock in portfolio %}
+            <tr>
+                <td>{{ stock.symbol }}</td>
+                <td>{{ stock.shares }}</td>
+                <td>{{ stock.current_price }}</td>
+                <td>{{ stock.total_value }}</td>
+                <td>
+                    <form action="/buy_sell" method="post" class="d-inline-flex align-items-center">
+                        <input type="hidden" name="symbol" value="{{ stock.symbol }}">
+                        <input type="number" name="shares" class="form-control mb-2 mr-2" placeholder="Shares" required>
+                        <button type="submit" name="action" value="buy" class="btn btn-success mb-2 mr-2">Buy</button>
+                        <button type="submit" name="action" value="sell" class="btn btn-danger mb-2">Sell</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div>
+        <p>Cash Balance: {{ cash_balance }}</p>
+        <p>Total Stock Value: {{ total_stock_value }}</p>
+        <p>Grand Total: {{ total_value }}</p>
+    </div>
+</div>
+{% endblock %}

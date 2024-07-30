@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    C$50 Finance: History
+{% endblock %}
+
+{% block main %}
+<div class="container mb-3">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Transaction Date and Time</th>
+                <th>Type</th>
+                <th>Stock Symbol</th>
+                <th>Amount</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in transactions %}
+            <tr class="{% if transaction.type == 'Sell' %}text-red{% endif %}">
+                <td>{{ transaction.transaction_date_time }}</td>
+                <td>{{ transaction.type }}</td>
+                <td>{{ transaction.symbol }}</td>
+                <td>{{ transaction.amount }}</td>
+                <td>{{ transaction.price | usd }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

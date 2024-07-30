@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ stock_info.symbol }} Information
+{% endblock %}
+
+{% block main %}
+<div class="container mb-3">
+    <table class="mx-auto">
+        <thead>
+            <tr>
+                <th class="text-center">Stock Quote</th>
+                <th class="text-center">Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="text-center">
+                    {{ stock_info.symbol }}
+                </td>
+                <td class="text-center">
+                    {{ stock_info.price | usd }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Google</title>
+        <link rel="stylesheet" href="styles.css">
+        <style>
+            form input[type="text"] {
+                margin-bottom: 10px;
+                border-radius: 24px;
+                border: 1px solid #d3d3d3;
+                width: 450px;
+                height: 30px;
+                padding-left: 14px;
+                padding-right: 14px;
+            }
+
+            button {
+                border-radius: 5px;
+                padding: 10px 15px;
+                border: 0px;
+                margin-right: 5px;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <a href="image.html" style="margin-right: 10px; text-align: right;">Image</a>
+            <a href="advanced.html" style="margin-right: 5px; text-align: right;">Advanced Search</a>
+        </div>
+        <div class="flex-container">
+            <a style="text-decoration: None; font-size: 100px;" href="index.html"><span class="blue">C</span><span class="red">S</span><span class="yellow">5</span><span class="green">0</span><span class="red">GLE</span></a>
+            <br>
+            <form id="searchForm" action="https://www.google.com/search">
+                <input type="text" name="q" class="box">
+                <br>
+                <div>
+                    <button type="submit" class="button">Google Search</button>
+                    <button type="submit" name="btnI" value="I" class="button">I'm Feeling Lucky</button>
+                </div>
+            </form>
+        </div>
+    </body>
+    </html>
